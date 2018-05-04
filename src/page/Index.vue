@@ -1,22 +1,13 @@
 <style lang="stylus">
-  .map-navbar
-    z-index 11
-    position fixed
-    background #FFF
 </style>
 
 <template>
   <div class="page">
-    <!-- <mt-navbar fixed v-show="!hideTools" class="map-navbar ds-tab" v-model="attTypeTab.selectedId">
-      <div class="inner">
-        <mt-tab-item v-for="item in attTypeTab.list" :key="item.name" :id="item.id">{{item.name}}</mt-tab-item>
+    <ds-navbar fixed v-show="!hideTools" class="map-navbar ds-tab" v-model="attTypeTab.selectedId">
+      <div class="wrapper" ref="wrapper">
+        <ds-tab-item v-for="item in attTypeTab.list" :key="item.name" :id="item.id">{{item.name}}</ds-tab-item>
       </div>
-    </mt-navbar> -->
-    <div class="map-navbar">
-      <cube-button primary="primary" >show toast</cube-button>
-      23
-
-    </div>
+    </ds-navbar>
 
     <div class="map-btn-float">
       <a @click="getWaits" class="btn">
@@ -55,7 +46,6 @@
 
 <script>
 import icon from '@/components/icon'
-// import tab from '@/components/tab/tab'
 import attList from '@/components/att-list'
 import attWaittime from '@/components/att-waittime'
 import { attTypeTab, attTypeIcon } from '@/common/park-arr'
@@ -64,6 +54,8 @@ import { handleId } from '@/utils/tool'
 import { Toast } from 'mint-ui';
 import crsBaidu from '@/lib/crs.baidu'
 import webdogTileLayer from '@/lib/webdogTileLayer'
+
+import BScroll from 'better-scroll'
 
 export default {
   name: 'Index',
@@ -142,10 +134,13 @@ export default {
       }
     }
     webdogTileLayer(url, options).addTo(map)
+    let scroll = new BScroll(this.$refs.wrapper, {
+      scrollY: true,
+      click: true
+    })
   },
   created() {
     this.$store.dispatch('getDestinationsList', 'attraction')
-
     this.$store.dispatch('getSchedules')
   }
 }

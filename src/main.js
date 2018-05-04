@@ -11,40 +11,10 @@ import '@/style/pepmdx-icons.css'
 import '@/style/disney/index.less'
 
 // Vue.config.productionTip = false
+import Ds from './disney-ui/src/index'
+
 Vue.use(Vuex)
-
-import {
-  Style,
-  Button,
-  Checkbox,
-  CheckboxGroup,
-  Loading,
-  Tip,
-  Popup,
-  Toast,
-  Picker,
-  TimePicker,
-  Dialog,
-  ActionSheet,
-  Scroll,
-  Slide,
-  IndexList
-} from './disney-ui/src/module.js'
-
-Vue.use(Button)
-Vue.use(Checkbox)
-Vue.use(CheckboxGroup)
-Vue.use(Loading)
-Vue.use(Tip)
-Vue.use(Toast)
-Vue.use(Picker)
-Vue.use(TimePicker)
-Vue.use(Dialog)
-Vue.use(ActionSheet)
-Vue.use(Scroll)
-Vue.use(Slide)
-Vue.use(IndexList)
-
+Vue.use(Ds)
 
 Vue.component('v-map', Vue2Leaflet.Map)
 Vue.component('v-tilelayer', Vue2Leaflet.TileLayer)
@@ -59,4 +29,3 @@ new Vue({
   components: { App },
   template: '<App/>'
 })
-
