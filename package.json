@@ -17,7 +17,7 @@
     "cube-ui"
   ],
   "dependencies": {
-    "axios": "^0.18.0",
+    "axios": "^0.21.1",
     "disney-ui": "1.0.5",
     "mint-ui": "^2.2.13",
     "moment": "^2.20.1",
